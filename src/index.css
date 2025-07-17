@@ -1,0 +1,120 @@
+/* Global styles */
+body {
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 1rem;
+  background: #ffe4e1; /* light pink */
+  color: #000;
+}
+
+/* Keep default heading font, but allow overrides */
+h1, h2, h3, h4, h5, h6 {
+  color: black;
+  font-family: 'Courier New', monospace;
+}
+
+/* Pixel-style heading override (for Home.js section headers) */
+/* Dark pink pixel font */
+.pixel-heading {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  color: #c71585; /* medium violet red / dark pink */
+  animation: glitchFade 1.2s ease-in-out;
+}
+
+.pixel-nav {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.75rem;
+  color: #c71585;
+}
+
+/* Pixel-style main headings */
+.pixel-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.25rem;
+  color: #c71585;
+  margin: 2rem 0 1rem;
+}
+
+/* Animation keyframe */
+@keyframes glitchFade {
+  0% { opacity: 0; transform: translateY(-10px); }
+  50% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 1; }
+}
+
+.speech-bubble {
+  position: absolute;
+  top: 10px;
+  left: 220px;
+  background: white;
+  border: 3px solid #c71585;
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  max-width: 220px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.65rem;
+  color: #c71585;
+  animation: bubblePop 1s ease-out forwards;
+  opacity: 0;
+  z-index: 2;
+}
+
+/* Triangle Tail */
+.speech-bubble-tail {
+  position: absolute;
+  left: -15px;
+  top: 20px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 15px solid #c71585;
+}
+
+/* Entrance Animation */
+@keyframes bubblePop {
+  0% {
+    transform: scale(0.5) translateY(10px);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1) translateY(-5px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Header bar styling */
+.site-header {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 0 0 12px 12px;
+}
+
+/* Navigation bar */
+nav {
+  background: #ffb6c1;
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Page container */
+div {
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: 'Courier New', monospace;
+}
