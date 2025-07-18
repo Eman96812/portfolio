@@ -3,21 +3,6 @@ import React, { useState } from 'react';
 function Home() {
     const [formStatus, setFormStatus] = useState('');
 
-    const sectionHeader = (title) => (
-        <div
-            style={{
-                backgroundColor: 'white',
-                padding: '0.5rem 1rem',
-                borderRadius: '8px',
-                marginTop: '2rem',
-                marginBottom: '1rem',
-                boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-            }}
-        >
-            <h2 className="pixel-heading" style={{ margin: 0 }}>{title}</h2>
-        </div>
-    );
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
@@ -37,88 +22,48 @@ function Home() {
         }
     };
 
+    const sectionHeader = (title) => (
+        <div style={styles.sectionHeader}>
+            <h2 className="pixel-heading" style={{ margin: 0 }}>{title}</h2>
+        </div>
+    );
+
     return (
-        <div>
-
-            <div style={{
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                marginBottom: '3rem',
-                marginTop: '7rem'
-            }}>
-                {/* Profile Image */}
-                <img
-                    src={`${process.env.PUBLIC_URL}/my_photo2.jpg`}
-                    alt="Your portrait"
-                    style={{
-                        width: '200px',
-                        height: '200px',
-                        objectFit: 'cover',
-                        objectPosition: 'center', // keeps the face centered
-                        transform: 'scale(1.2)', // zooms in
-                        borderRadius: '50%',
-                        border: '4px solid #ccc',
-                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-                        transition: 'transform 0.3s ease'
-                    }}
-                />
-
-                {/* Speech bubble image */}
-                <img
-                    src={`${process.env.PUBLIC_URL}/speech.png`}
-                    alt="Speech bubble"
-                    style={{
-                        position: 'absolute',
-                        top: '-110px',       // higher than before
-                        left: 'calc(50% + 80px)', // offset relative to center
-                        width: '160px',
-                        height: 'auto',
-                        zIndex: 5
-                    }}
-                />
-
-                {/* Text inside the bubble */}
-                <div style={{
-                    position: 'absolute',
-                    top: '-50px',         // adjust for better vertical placement
-                    left: 'calc(50% + 105px)', // aligned inside the bubble
-                    width: '120px',
-                    textAlign: 'center',
-                    fontFamily: "'Press Start 2P', cursive",
-                    fontSize: '0.65rem',
-                    color: '##c71585',
-                    lineHeight: '1.3',
-                    zIndex: 6
-                }}>
-                    Hi,<br />I'm Eman!
+        <div style={styles.container}>
+            {/* Top Profile + Speech Bubble */}
+            <div style={styles.profileContainer}>
+                <div style={styles.profileWrapper}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/my_photo2.jpg`}
+                        alt="Eman"
+                        style={styles.profileImage}
+                    />
+                    <div style={styles.bubbleWrapper}>
+                        <img
+                            src={`${process.env.PUBLIC_URL}/speech.png`}
+                            alt="Speech bubble"
+                            style={styles.bubbleImage}
+                        />
+                        <div style={styles.bubbleText}>
+                            Hello,<br />I'm Eman!
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <h1 className="pixel-title" style={{ textAlign: 'center' }}>Eman Nabeel</h1>
 
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1.5rem',
-                flexWrap: 'wrap',
-                marginBottom: '2rem',
-                fontFamily: "'Press Start 2P', cursive",
-                fontSize: '0.65rem',
-                textAlign: 'center'
-            }}>
-                <a href="mailto:26100270@lums.edu.pk" target="_blank" rel="noopener noreferrer">📧 Email</a>
-                <a href="https://drive.google.com/file/d/19swjjqFG2qvBi9iHHBVbExSjsOR3JOwK/view?usp=share_link" target="_blank" rel="noopener noreferrer">📄 CV</a>
-                <a href="https://linkedin.com/in/eman-nabeel-191aa9257" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
-                <a href="https://github.com/Eman96812" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+            <div style={styles.links}>
+                <a href="mailto:26100270@lums.edu.pk" target="_blank">📧 Email</a>
+                <a href="https://drive.google.com/file/d/19swjjqFG2qvBi9iHHBVbExSjsOR3JOwK/view?usp=share_link" target="_blank">📄 CV</a>
+                <a href="https://linkedin.com/in/eman-nabeel-191aa9257" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/Eman96812" target="_blank">💻 GitHub</a>
             </div>
 
-
-
             {sectionHeader('About Me')}
-            <p>
-                I am a curious, driven developer who enjoys creating clean, user-friendly web apps. I love working with React, Node.js, and MongoDB, and exploring AI and machine learning in my free time.
+            <p style={styles.paragraph}>
+                I am a curious, driven developer who enjoys creating clean, user-friendly web apps.
+                I love working with React, Node.js, and MongoDB, and exploring AI and machine learning in my free time.
             </p>
 
             {sectionHeader('Interests')}
@@ -131,77 +76,135 @@ function Home() {
 
             {sectionHeader('Contact')}
             <p>Email: 26100270@lums.edu.pk</p>
-            <p>Alternative Email(s): eman.nabeel@lums.edu.pk | emannabeel03@gmail.com</p>
+            <p>Alt Emails: eman.nabeel@lums.edu.pk | emannabeel03@gmail.com</p>
             <p>Feel free to reach out via email or LinkedIn!</p>
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2rem' }}>
-                <form
-                    onSubmit={handleSubmit}
-                    style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '1rem',
-                        width: '100%',
-                        maxWidth: '600px'
-                    }}
-                >
-                    <input
-                        type="text"
-                        name="subject"
-                        placeholder="Message Title"
-                        required
-                        style={{
-                            padding: '0.75rem',
-                            fontFamily: "'Courier New', monospace",
-                            fontSize: '0.9rem',
-                            border: '2px solid #ccc',
-                            borderRadius: '8px'
-                        }}
-                    />
-                    <textarea
-                        name="message"
-                        placeholder="Type your message..."
-                        required
-                        rows="5"
-                        style={{
-                            padding: '0.75rem',
-                            fontFamily: "'Courier New', monospace",
-                            fontSize: '0.9rem',
-                            border: '2px solid #ccc',
-                            borderRadius: '8px',
-                            resize: 'vertical'
-                        }}
-                    />
-                    <button
-                        type="submit"
-                        style={{
-                            backgroundColor: '#ff69b4',
-                            color: 'white',
-                            fontFamily: "'Press Start 2P', cursive",
-                            fontSize: '0.7rem',
-                            padding: '0.75rem',
-                            border: 'none',
-                            borderRadius: '8px',
-                            cursor: 'pointer',
-                            textTransform: 'uppercase'
-                        }}
-                    >
-                        Send
-                    </button>
 
-                    {formStatus === 'SUCCESS' && (
-                        <p style={{ color: 'green', fontFamily: "'Courier New', monospace" }}>
-                            🎉 Message sent successfully!
-                        </p>
-                    )}
-                    {formStatus === 'ERROR' && (
-                        <p style={{ color: 'red', fontFamily: "'Courier New', monospace" }}>
-                            ❌ Oops! Something went wrong.
-                        </p>
-                    )}
+            <div style={styles.formContainer}>
+                <form onSubmit={handleSubmit} style={styles.form}>
+                    <input type="text" name="subject" placeholder="Message Title" required style={styles.input} />
+                    <textarea name="message" placeholder="Type your message..." required rows="5" style={styles.textarea} />
+                    <button type="submit" style={styles.button}>Send</button>
                 </form>
             </div>
         </div>
     );
 }
+
+const styles = {
+    container: {
+        padding: '1rem',
+        maxWidth: '900px',
+        margin: '0 auto',
+    },
+    profileContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '6rem', // adds space below navbar
+        marginBottom: '2rem',
+        position: 'relative', // so we can anchor absolutely inside
+    },
+    profileWrapper: {
+        position: 'relative',
+        width: 'fit-content',
+        margin: '0 auto',
+    },
+    profileImage: {
+        width: '150px',
+        height: '150px',
+        borderRadius: '50%',
+        objectFit: 'cover',
+        border: '4px solid #ccc',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+    },
+    bubbleWrapper: {
+        position: 'absolute',
+        top: '-60px',
+        right: '-80px',
+        width: '140px',
+    },
+
+    bubbleImage: {
+        width: '100%',
+        height: 'auto',
+        display: 'block',
+    },
+
+    bubbleText: {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        fontFamily: "'Press Start 2P', cursive",
+        fontSize: '0.70rem',
+        color: '#c71585',
+        lineHeight: '1.2',
+        padding: '3.2rem 4.8rem 0 0.2rem', // optional to prevent overflow
+        textAlign: 'center',
+        pointerEvents: 'none', // ensures click passes through to bubble if needed
+    },
+    links: {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '1rem',
+        flexWrap: 'wrap',
+        marginBottom: '2rem',
+        fontFamily: "'Press Start 2P', cursive",
+        fontSize: '0.65rem',
+        textAlign: 'center',
+    },
+    sectionHeader: {
+        backgroundColor: 'white',
+        padding: '0.5rem 1rem',
+        borderRadius: '8px',
+        marginTop: '2rem',
+        marginBottom: '1rem',
+        boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+    },
+    paragraph: {
+        lineHeight: '1.6',
+    },
+    formContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '2rem',
+    },
+    form: {
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        width: '100%',
+        maxWidth: '600px',
+    },
+    input: {
+        padding: '0.75rem',
+        fontFamily: "'Courier New', monospace",
+        fontSize: '0.9rem',
+        border: '2px solid #ccc',
+        borderRadius: '8px',
+    },
+    textarea: {
+        padding: '0.75rem',
+        fontFamily: "'Courier New', monospace",
+        fontSize: '0.9rem',
+        border: '2px solid #ccc',
+        borderRadius: '8px',
+        resize: 'vertical',
+    },
+    button: {
+        backgroundColor: '#ff69b4',
+        color: 'white',
+        fontFamily: "'Press Start 2P', cursive",
+        fontSize: '0.7rem',
+        padding: '0.75rem',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        textTransform: 'uppercase',
+    }
+};
 
 export default Home;
