@@ -73,7 +73,7 @@ function Home({ darkMode, setDarkMode }) {
                 fontFamily: 'Arial, sans-serif',
                 fontWeight: 'bold'
             }}>
-                Privacy | LLMs | Online Safety and Security | AI for Systems | Internet Research | HCI | HRI
+                Privacy | LLMs | Online Safety | AI for Systems | Internet Research | Tech Policy | HCI | HRI
             </p>
 
             <section style={styles.hero} className="heroGrid">
