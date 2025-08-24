@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 
-function Home() {
+function Home({ darkMode, setDarkMode }) {
     const [formStatus, setFormStatus] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const form = e.target;
         const data = new FormData(form);
+        const email = data.get('email');
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('❌ Please enter a valid email address.');
+            return;
+        }
 
         const response = await fetch('https://formspree.io/f/mkgzgjnz', {
             method: 'POST',
@@ -23,64 +30,182 @@ function Home() {
     };
 
     const sectionHeader = (title) => (
-        <div style={styles.sectionHeader}>
-            <h2 className="pixel-heading" style={{ margin: 0 }}>{title}</h2>
+        <div style={{
+            ...styles.sectionHeader,
+            backgroundColor: darkMode ? '#f8ddecff' : '#ece5e9ff',
+        }}>
+            <h2 style={{
+                margin: 0,
+                fontFamily: 'Arial, sans-serif',
+                fontSize: '1rem',
+                color: '#1a1a1a',
+                fontWeight: 'bold',
+            }}>
+                {title}
+            </h2>
         </div>
     );
 
     return (
         <div style={styles.container}>
-            {/* Top Profile + Speech Bubble */}
-            <div style={styles.profileContainer}>
-                <div style={styles.profileWrapper}>
-                    <img
-                        src={`${process.env.PUBLIC_URL}/my_photo2.jpg`}
-                        alt="Eman"
-                        style={styles.profileImage}
-                    />
-                    <div style={styles.bubbleWrapper}>
-                        <img
-                            src={`${process.env.PUBLIC_URL}/speech.png`}
-                            alt="Speech bubble"
-                            style={styles.bubbleImage}
-                        />
-                        <div style={styles.bubbleText}>
-                            Hello,<br />I'm Eman!
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h1 className="pixel-title" style={{
+                textAlign: 'center',
+                marginTop: '3.5rem',
+                color: darkMode ? '#ffc0cb' : '#1a1a1a'
+            }}>
+                Eman Nabeel
+            </h1>
 
-            <h1 className="pixel-title" style={{ textAlign: 'center' }}>Eman Nabeel</h1>
-
-            <div style={styles.links}>
-                <a href="mailto:26100270@lums.edu.pk" target="_blank">📧 Email</a>
-                <a href="https://drive.google.com/file/d/19swjjqFG2qvBi9iHHBVbExSjsOR3JOwK/view?usp=share_link" target="_blank">📄 CV</a>
-                <a href="https://linkedin.com/in/eman-nabeel-191aa9257" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/Eman96812" target="_blank">💻 GitHub</a>
-            </div>
-
-            {sectionHeader('About Me')}
-            <p style={styles.paragraph}>
-                I am a curious, driven developer who enjoys creating clean, user-friendly web apps.
-                I love working with React, Node.js, and MongoDB, and exploring AI and machine learning in my free time.
+            <p style={{
+                textAlign: 'center',
+                marginTop: '0.25rem',
+                opacity: 0.85,
+                fontFamily: 'Arial, sans-serif',
+            }}>
+                Undergraduate Student Researcher in Computer Science
             </p>
 
-            {sectionHeader('Interests')}
-            <ul>
-                <li>Artificial Intelligence</li>
-                <li>Open Source</li>
-                <li>Digital Design</li>
-                <li>Community Building</li>
+            <p style={{
+                textAlign: 'center',
+                marginTop: '0.25rem',
+                opacity: 0.85,
+                // color: '#ffc0cb',
+                fontFamily: 'Arial, sans-serif',
+                fontWeight: 'bold'
+            }}>
+                Privacy | LLMs | Online Safety and Security | AI for Systems | Internet Research | HCI | HRI
+            </p>
+
+            <section style={styles.hero} className="heroGrid">
+                <div style={styles.heroText}>
+                    <p style={styles.paragraph}>
+                        Hi, I’m Eman Nabeel, a fourth-year CS student at LUMS with a deep interest in the intersection of AI (specifically LLMs) and systems—especially where it touches on privacy and online safety. My current research explores how large language models (LLMs) can be used in scalable systems to tackle real-world challenges such as content moderation to make the internet safer and IP geolocation. I’m especially focused on child online safety, with it also being my senior thesis topic—supported by <a href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/" target="_blank" rel="noopener noreferrer">Safe Online Global</a>—and have also worked on privacy-preserving technologies for bystanders in smart glasses.
+                    </p>
+                    <p style={styles.paragraph}>
+                        I work jointly at the <strong>Systems &amp; AI Lab</strong> and the <strong>Internet, Data &amp; Society Lab</strong> at LUMS under the supervision of
+                        <a href="https://web.lums.edu.pk/~zafar/" target="_blank" rel="noopener noreferrer"> Dr. Zafar Ayyub Qazi</a> and
+                        <a href="https://www.ihsanqazi.com/" target="_blank" rel="noopener noreferrer"> Dr. Ihsan Ayyub Qazi</a>,
+                        and also at the <strong>Embedded AI Lab</strong> at LUMS under
+                        <a href="https://web.lums.edu.pk/~alizai/" target="_blank" rel="noopener noreferrer"> Dr. Hammad Alizai</a> and
+                        <a href="https://naveedanwarbhatti.github.io" target="_blank" rel="noopener noreferrer"> Dr. Naveed Anwar Bhatti</a>.
+                        I’ve recently begun working with{' '}
+                        <a
+                            href="https://www.maryamustafa.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: darkMode ? '#f8ddecff' : '#1a1a1a', textDecoration: 'none' }}
+                        >
+                            Dr. Maryam Mustafa
+                        </a>{' '}
+                        at the <strong>Interactive Media Lab</strong>, focusing on HCI-driven research in online child safety.
+                        
+                        {/* I’ve also collaborated with
+                        <a href="https://www.geopolitique.net/our_team/frederick-douzet/" target="_blank" rel="noopener noreferrer"> Frédérick Douzet</a> and
+                        <a href="https://www.univ-smb.fr/listic/en/presentation_listic/membres/enseignants-chercheurs/kave-salamatian/" target="_blank" rel="noopener noreferrer"> Kave Salamatian</a>
+                        on the economics of internet shutdowns in Pakistan. */}
+                    </p>
+                    <p style={styles.paragraph}>
+                        My coursework is strongly inclined toward systems and networking, including distributed systems, network security, OS, Applied Cryptography, and blockchain, backed by hands-on experience with LLMs and edge AI.
+                    </p>
+                </div>
+
+                <div style={styles.heroMedia}>
+                    <div style={styles.profileWrapper}>
+                        <img
+                            src={`${process.env.PUBLIC_URL}/my_photo2.jpg`}
+                            alt="Portrait of Eman"
+                            style={styles.profileImage}
+                        />
+                    </div>
+
+                    <div style={styles.iconLinks}>
+                        <a href="mailto:26100270@lums.edu.pk" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/${darkMode ? 'mail-light.png' : 'mail.png'}`}
+                                alt="Email"
+                                style={styles.icon}
+                            />
+                        </a>
+                        <a href="https://drive.google.com/file/d/1FijzfrzznvfE1u8JuXAhhVp9cEZdz89B/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/${darkMode ? 'cv-pink.png' : 'cv.png'}`}
+                                alt="CV"
+                                style={styles.icon}
+                            />
+                        </a>
+                        <a href="https://linkedin.com/in/eman-nabeel-191aa9257" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/${darkMode ? 'linkedin-light.png' : 'linkedin.png'}`}
+                                alt="LinkedIn"
+                                style={styles.icon}
+                            />
+                        </a>
+                        <a href="https://github.com/Eman96812" target="_blank" rel="noopener noreferrer">
+                            <img
+                                src={`${process.env.PUBLIC_URL}/${darkMode ? 'github-light.png' : 'github.png'}`}
+                                alt="GitHub"
+                                style={styles.icon}
+                            />
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            {sectionHeader('Research Interests')}
+            <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+                {[
+                    'Privacy and Online Safety',
+                    'AI & LLMs for Scalable System Designs',
+                    'HCI',
+                    'Security',
+                    'Networks and Internet Measurements',
+                ].map((interest, i) => (
+                    <li key={i} style={{
+                        fontFamily: 'Arial, sans-serif',
+                        fontSize: '0.9rem',
+                        marginBottom: '0.4rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        color: darkMode ? '#f5f5f5' : '#000',
+                    }}>
+                        <span style={{
+                            color: '#f8ddecff',
+                            fontSize: '0.75rem',
+                            marginRight: '0.75rem',
+                        }}>
+                            ■
+                        </span>
+                        {interest}
+                    </li>
+                ))}
             </ul>
 
+            {sectionHeader('Random Fact about Me')}
+            <p style={styles.paragraph}>
+                I have 12 cats and am in the process of convincing my parents to get me a dog :).
+            </p>
+
             {sectionHeader('Contact')}
-            <p>Email: 26100270@lums.edu.pk</p>
-            <p>Alt Emails: eman.nabeel@lums.edu.pk | emannabeel03@gmail.com</p>
-            <p>Feel free to reach out via email or LinkedIn!</p>
+            <p>
+                Email:{' '}
+                <a href="mailto:26100270@lums.edu.pk" style={{ textDecoration: 'none', color: darkMode ? '#ffc0cb' : '#1a1a1a', fontWeight: 'bold' }}>
+                    26100270@lums.edu.pk
+                </a>
+            </p>
+            <p>
+                Alt Emails:{' '}
+                <a href="mailto:eman.nabeel@lums.edu.pk" style={{ textDecoration: 'none', color: darkMode ? '#ffc0cb' : '#1a1a1a', fontWeight: 'bold' }}>
+                    eman.nabeel@lums.edu.pk
+                </a>{' '}
+                |{' '}
+                <a href="mailto:emannabeel03@gmail.com" style={{ textDecoration: 'none', color: darkMode ? '#ffc0cb' : '#1a1a1a', fontWeight: 'bold' }}>
+                    emannabeel03@gmail.com
+                </a>
+            </p>
 
             <div style={styles.formContainer}>
                 <form onSubmit={handleSubmit} style={styles.form}>
+                    <input type="email" name="email" placeholder="Your Email" required style={styles.input} />
                     <input type="text" name="subject" placeholder="Message Title" required style={styles.input} />
                     <textarea name="message" placeholder="Type your message..." required rows="5" style={styles.textarea} />
                     <button type="submit" style={styles.button}>Send</button>
@@ -93,71 +218,51 @@ function Home() {
 const styles = {
     container: {
         padding: '1rem',
-        maxWidth: '900px',
+        maxWidth: '1000px',
         margin: '0 auto',
+        fontFamily: 'Arial, sans-serif',
     },
-    profileContainer: {
+    hero: {
+        display: 'grid',
+        gridTemplateColumns: '1.2fr 0.8fr',
+        gap: '2rem',
+        alignItems: 'start',
+        marginTop: '2rem',
+    },
+    heroText: {
+        fontSize: '1rem',
+        lineHeight: 1.7,
+    },
+    heroMedia: {
         display: 'flex',
-        justifyContent: 'center',
-        marginTop: '6rem', // adds space below navbar
-        marginBottom: '2rem',
-        position: 'relative', // so we can anchor absolutely inside
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1rem',
     },
     profileWrapper: {
-        position: 'relative',
-        width: 'fit-content',
-        margin: '0 auto',
+        width: '250px', // increased for better visibility
+        height: '250px',
     },
     profileImage: {
-        width: '150px',
-        height: '150px',
+        width: '100%',
+        height: '100%',
         borderRadius: '50%',
         objectFit: 'cover',
         border: '4px solid #ccc',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
     },
-    bubbleWrapper: {
-        position: 'absolute',
-        top: '-60px',
-        right: '-80px',
-        width: '140px',
-    },
-
-    bubbleImage: {
-        width: '100%',
-        height: 'auto',
-        display: 'block',
-    },
-
-    bubbleText: {
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
+    iconLinks: {
         display: 'flex',
+        gap: '0.75rem',
         justifyContent: 'center',
-        alignItems: 'flex-start',
-        fontFamily: "'Press Start 2P', cursive",
-        fontSize: '0.70rem',
-        color: '#c71585',
-        lineHeight: '1.2',
-        padding: '3.2rem 4.8rem 0 0.2rem', // optional to prevent overflow
-        textAlign: 'center',
-        pointerEvents: 'none', // ensures click passes through to bubble if needed
+        marginTop: '0.5rem',
     },
-    links: {
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '1rem',
-        flexWrap: 'wrap',
-        marginBottom: '2rem',
-        fontFamily: "'Press Start 2P', cursive",
-        fontSize: '0.65rem',
-        textAlign: 'center',
+    icon: {
+        width: '28px',
+        height: '28px',
+        objectFit: 'contain',
     },
     sectionHeader: {
-        backgroundColor: 'white',
         padding: '0.5rem 1rem',
         borderRadius: '8px',
         marginTop: '2rem',
@@ -165,7 +270,8 @@ const styles = {
         boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
     },
     paragraph: {
-        lineHeight: '1.6',
+        lineHeight: 1.7,
+        marginBottom: '1rem',
     },
     formContainer: {
         display: 'flex',
@@ -181,30 +287,27 @@ const styles = {
     },
     input: {
         padding: '0.75rem',
-        fontFamily: "'Courier New', monospace",
         fontSize: '0.9rem',
         border: '2px solid #ccc',
         borderRadius: '8px',
     },
     textarea: {
         padding: '0.75rem',
-        fontFamily: "'Courier New', monospace",
         fontSize: '0.9rem',
         border: '2px solid #ccc',
         borderRadius: '8px',
         resize: 'vertical',
     },
     button: {
-        backgroundColor: '#ff69b4',
-        color: 'white',
-        fontFamily: "'Press Start 2P', cursive",
+        backgroundColor: '#f8ddecff',
+        color: '#1a1a1a',
         fontSize: '0.7rem',
         padding: '0.75rem',
         border: 'none',
         borderRadius: '8px',
         cursor: 'pointer',
         textTransform: 'uppercase',
-    }
+    },
 };
 
 export default Home;

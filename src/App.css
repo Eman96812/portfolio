@@ -1,19 +1,94 @@
+/* =========================
+   App.css — layout & responsive helpers
+   ========================= */
+
+/* --- HERO layout (works with <section class="heroGrid">) --- */
+.heroGrid {
+  /* The base two-column grid is set inline in Home.js.
+     This class handles responsiveness for small screens. */
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    display: grid;
+    grid-template-columns: 1fr;   /* stack columns */
+    row-gap: 1.5rem;
+  }
+
+  /* center the right column content (image + quick links) when stacked */
+  .heroGrid .profileWrapper {
+    margin-inline: auto;
+  }
+}
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .heroGrid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Contact links row utility */
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* =========================
+   Responsive typography
+   ========================= */
 @media (max-width: 600px) {
   .pixel-title {
     font-size: 1.2rem;
+    font-family: Arial, sans-serif;
   }
 
   .pixel-nav {
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
+    font-family: Arial, sans-serif;
   }
 
   .contact-links a {
     font-size: 0.6rem;
+    font-family: Arial, sans-serif;
   }
 
   .pixel-heading {
     font-size: 0.8rem;
+    font-family: Arial, sans-serif;
+  }
+}
+
+/* =========================
+   Animations (kept as-is)
+   ========================= */
+@keyframes catWalkBanner {
+  0% {
+    left: 100%;
+    transform: scaleX(-1); /* face left */
+  }
+  100% {
+    left: -80px; /* fully off-screen */
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes catWalkNav {
+  0% {
+    left: 100%;
+    transform: scaleX(-1); /* face left */
+  }
+  100% {
+    left: -80px;
+    transform: scaleX(-1);
   }
 }
