@@ -122,19 +122,20 @@ function Experience({ darkMode }) {
                 </Link>{' '}
                 section →
             </h3>
-            {subHeader('Undergraduate Research Assistant - ', 'Systems & AI Lab and Internet, Data & Society Lab (IDSL)', '(June 2024 - Present)')}
+            {subHeader('Undergraduate Research Assistant - ', 'Systems & AI Lab in collab w/ Internet, Data & Society Lab (IDSL)', '(June 2024 - Present)')}
             <p style={paragraphStyle}>
-                Focused on LLM-based systems for child online safety, evaluating LLM guardrails, and IP geolocation.
+                Focused on LLM-based systems for child online safety and evaluating LLM guardrails.
             </p>
 
-            {subHeader('Undergraduate Research Assistant - ', 'Embedded AI Lab', '(January 2025 - Present)')}
-            <p style={paragraphStyle}>
-                Focused on consent-driven bystander privacy in smart glasses, including anonymization, blurring, and synthetic face replacement techniques.
-            </p>
 
             {subHeader('Undergraduate Research Assistant - ', 'Interactive Media Lab (IML)', '(May 2025 - Present)')}
             <p style={paragraphStyle}>
                 Focused on HCI-driven evaluation of cultural perspectives on child online safety by studying how Pakistani parents assess multi-modal inappropriate content.
+            </p>
+
+            {subHeader('Undergraduate Research Assistant - ', 'Embedded AI Lab', '(January 2025 - October 2025)')}
+            <p style={paragraphStyle}>
+                Focused on consent-driven bystander privacy in smart glasses, including anonymization, blurring, and synthetic face replacement techniques.
             </p>
 
             {subHeader('Research Intern - ', 'GEODE, IFG, University of Paris 8', '(Aug 2024 - July 2025)')}

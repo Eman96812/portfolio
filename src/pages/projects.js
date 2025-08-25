@@ -127,6 +127,9 @@ function Projects({ darkMode }) {
 
       {sectionHeader('LLM-powered Robot for Fetching Tasks')}
       <h3 style={styles.subheading}>
+        <span style={{ color: darkMode ? '#c1186dff' : '#c1186dff', fontWeight: 'normal' }}>
+          [Course Project]
+        </span>{' '}
         <a
           href="https://drive.google.com/file/d/1T2qn-eV0xIEb6e6qIwPi-U5Hl5fk7WEq/view?usp=sharing"
           target="_blank"
@@ -197,13 +200,13 @@ function Projects({ darkMode }) {
 
       {sectionHeader('LLM-powered IP Geolocation')}
       <h3 style={styles.subheading}>
-        <span style={{ color: darkMode ? '#c1186dff' : '#c1186dff', fontWeight: 'normal' }}>
-          [In Progress]
-        </span>{' '}
+        {/* <span style={{ color: darkMode ? '#c1186dff' : '#c1186dff', fontWeight: 'normal' }}>
+          [Wrapped Up]
+        </span>{' '} */}
         Where is the Internet? Using LLMs and Reverse DNS to Geolocate Infrastructure IPs
       </h3>
       <p style={{ fontSize: '0.75rem', marginTop: '-0.5rem', marginBottom: '0.75rem', color: darkMode ? '#f5f5f5' : '#777' }}>
-        In Collaboration with IFG Lab at University of Paris 8
+        In Collaboration with IFG Lab at University of Paris 8 - Worked for a very short period of time on this
       </p>
       <p style={styles.paragraph}>
         Investigated how LLMs can geolocate infrastructure IPs by parsing hostnames obtained via reverse DNS, leveraging RIPE Atlas traceroutes. Incorporated Matthew Luckie’s hostname-based geolocation database to extract and validate location codes.

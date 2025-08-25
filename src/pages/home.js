@@ -11,7 +11,7 @@ function Home({ darkMode, setDarkMode }) {
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('❌ Please enter a valid email address.');
+            alert('Please enter a valid email address.');
             return;
         }
 
@@ -22,10 +22,10 @@ function Home({ darkMode, setDarkMode }) {
         });
 
         if (response.ok) {
-            alert('🎉 Message sent successfully!');
+            alert('Message sent successfully!');
             form.reset();
         } else {
-            alert('❌ Oops! Something went wrong.');
+            alert('Oops! Something went wrong.');
         }
     };
 
@@ -73,21 +73,17 @@ function Home({ darkMode, setDarkMode }) {
                 fontFamily: 'Arial, sans-serif',
                 fontWeight: 'bold'
             }}>
-                Privacy | LLMs | Online Safety | AI for Systems | Tech Policy | HCI | Internet Research | IoT | HRI
+                Privacy | AI (LLMs) | Online Safety | HCI | Tech Policy | Systems
             </p>
 
             <section style={styles.hero} className="heroGrid">
                 <div style={styles.heroText}>
                     <p style={styles.paragraph}>
-                        Hi, I’m Eman Nabeel, a fourth-year CS student at LUMS with a deep interest in the intersection of AI (specifically LLMs) and systems—especially where it touches on privacy and online safety. My current research explores how large language models (LLMs) can be used in scalable systems to tackle real-world challenges such as content moderation to make the internet safer and IP geolocation. I’m especially focused on child online safety, with it also being my senior thesis topic—supported by <a href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/" target="_blank" rel="noopener noreferrer">Safe Online Global</a>—and have also worked on privacy-preserving technologies for bystanders in smart glasses.
-                    </p>
+                        Hi, I’m Eman, a fourth-year CS student at LUMS with a deep interest in the intersection of AI (specifically LLMs) and systems, especially where it touches on privacy and online safety. My current research explores how large language models (LLMs) can be used in scalable systems to tackle real-world challenges such as content moderation to make the internet safer. I’m especially focused on child online safety, with it also being my senior thesis topic, supported by <a href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/" target="_blank" rel="noopener noreferrer">Safe Online Global</a>.</p>
                     <p style={styles.paragraph}>
                         I work jointly at the <strong>Systems &amp; AI Lab</strong> and the <strong>Internet, Data &amp; Society Lab</strong> at LUMS under the supervision of
                         <a href="https://web.lums.edu.pk/~zafar/" target="_blank" rel="noopener noreferrer"> Dr. Zafar Ayyub Qazi</a> and
-                        <a href="https://www.ihsanqazi.com/" target="_blank" rel="noopener noreferrer"> Dr. Ihsan Ayyub Qazi</a>,
-                        and also at the <strong>Embedded AI Lab</strong> at LUMS under
-                        <a href="https://web.lums.edu.pk/~alizai/" target="_blank" rel="noopener noreferrer"> Dr. Hammad Alizai</a> and
-                        <a href="https://naveedanwarbhatti.github.io" target="_blank" rel="noopener noreferrer"> Dr. Naveed Anwar Bhatti</a>.
+                        <a href="https://www.ihsanqazi.com/" target="_blank" rel="noopener noreferrer"> Dr. Ihsan Ayyub Qazi</a> on Child Online Safety.
                         I’ve recently begun working with{' '}
                         <a
                             href="https://www.maryamustafa.com/"
@@ -97,12 +93,17 @@ function Home({ darkMode, setDarkMode }) {
                         >
                             Dr. Maryam Mustafa
                         </a>{' '}
-                        at the <strong>Interactive Media Lab</strong>, focusing on HCI-driven research in online child safety.
-                        
+                        at the <strong>Interactive Media Lab</strong>, on a project focusing on HCI-driven research in online child safety.
+
                         {/* I’ve also collaborated with
                         <a href="https://www.geopolitique.net/our_team/frederick-douzet/" target="_blank" rel="noopener noreferrer"> Frédérick Douzet</a> and
                         <a href="https://www.univ-smb.fr/listic/en/presentation_listic/membres/enseignants-chercheurs/kave-salamatian/" target="_blank" rel="noopener noreferrer"> Kave Salamatian</a>
                         on the economics of internet shutdowns in Pakistan. */}
+                    </p>
+                    <p style={styles.paragraph}>
+                        Previosuly, I have worked with 
+                        <a href="https://web.lums.edu.pk/~alizai/" target="_blank" rel="noopener noreferrer"> Dr. Hammad Alizai</a> and
+                        <a href="https://naveedanwarbhatti.github.io" target="_blank" rel="noopener noreferrer"> Dr. Naveed Anwar Bhatti</a> at the <strong>Embedded AI Lab</strong> at LUMS focused on privacy-preserving technologies for bystanders in smart glasses.
                     </p>
                     <p style={styles.paragraph}>
                         My coursework is strongly inclined toward systems and networking, including distributed systems, network security, OS, Applied Cryptography, and blockchain, backed by hands-on experience with LLMs and edge AI.
@@ -112,7 +113,7 @@ function Home({ darkMode, setDarkMode }) {
                 <div style={styles.heroMedia}>
                     <div style={styles.profileWrapper}>
                         <img
-                            src={`${process.env.PUBLIC_URL}/my_photo2.jpg`}
+                            src={`${process.env.PUBLIC_URL}/my_photo2.jpeg`}
                             alt="Portrait of Eman"
                             style={styles.profileImage}
                         />
@@ -126,7 +127,7 @@ function Home({ darkMode, setDarkMode }) {
                                 style={styles.icon}
                             />
                         </a>
-                        <a href="https://drive.google.com/file/d/1FijzfrzznvfE1u8JuXAhhVp9cEZdz89B/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/1Uc6RHWWSQHsV9oC1IKMoOqBTfSXcxLZG/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                             <img
                                 src={`${process.env.PUBLIC_URL}/${darkMode ? 'cv-pink.png' : 'cv.png'}`}
                                 alt="CV"
@@ -154,7 +155,7 @@ function Home({ darkMode, setDarkMode }) {
             {sectionHeader('Research Interests')}
             <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
                 {[
-                    'Privacy and Online Safety',
+                    'Privacy, Online Safety and Policy',
                     'AI & LLMs for Scalable System Designs',
                     'HCI',
                     'Security',
