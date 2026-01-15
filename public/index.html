@@ -22,6 +22,70 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-P49DRFZV');</script>
   <!-- End Google Tag Manager -->
+
+  <!-- Custom gtm script that assigns random number to user and then returns their location -->
+
+  <script>
+// Step 1: Generate or retrieve a user ID
+function getUserId() {
+  let uid = localStorage.getItem("custom_user_id");
+  if (!uid) {
+    uid = "uid_" + Math.random().toString(36).substring(2, 10);
+    localStorage.setItem("custom_user_id", uid);
+  }
+  return uid;
+}
+
+// Step 2: Get location (using a free geo API)
+// You can replace with your server-side lookup if you don’t want to expose external API
+fetch("https://ipapi.co/json/")  // alternative: https://ipinfo.io/json
+  .then(resp => resp.json())
+  .then(data => {
+    const userId = getUserId();
+    const country = data.country_name || "Unknown";
+    const continent = data.continent_code || "Unknown";
+
+    // Step 3: Push into dataLayer
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "user_profile",
+      user_id: userId,
+      country: country,
+      continent: continent
+    });
+  })
+  .catch(err => {
+    console.error("Geo lookup failed:", err);
+    const userId = getUserId();
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "user_profile",
+      user_id: userId,
+      country: "Unknown",
+      continent: "Unknown"
+    });
+  });
+</script>
+
+    <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '779413624633780');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=779413624633780&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+
 </head>
 
 <body>

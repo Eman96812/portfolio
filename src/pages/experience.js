@@ -128,7 +128,7 @@ function Experience({ darkMode }) {
             </p>
 
 
-            {subHeader('Undergraduate Research Assistant - ', 'Interactive Media Lab (IML)', '(May 2025 - Present)')}
+            {subHeader('Undergraduate Research Intern - ', 'Interactive Media Lab (IML)', '(May 2025 - Present)')}
             <p style={paragraphStyle}>
                 Focused on HCI-driven evaluation of cultural perspectives on child online safety by studying how Pakistani parents assess multi-modal inappropriate content.
             </p>
@@ -210,7 +210,7 @@ function Experience({ darkMode }) {
                 '(June 2025)'
             )}
             <p style={paragraphStyle}>
-                Awarded for work on filtering harmful content in children's online media. Part of{' '}
+                Awarded to our lab for our work on filtering harmful content in children's online media. Part of{' '}
                 <a
                     href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/"
                     target="_blank"
@@ -294,7 +294,7 @@ function Experience({ darkMode }) {
             <p style={paragraphStyle}>Maintained GPA in top 5% across 6 semesters.</p>
 
             {subHeader('Merit Scholarship', '', '(2023–2026)')}
-            <p style={paragraphStyle}>Awarded to top 15 students based on academic record. My rank has been top 4% (13th).</p>
+            <p style={paragraphStyle}>Awarded to top 15 students based on academic record. My rank has been top 2%.</p>
 
             {sectionHeader('Coursework')}
             <ul

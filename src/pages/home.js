@@ -79,7 +79,12 @@ function Home({ darkMode, setDarkMode }) {
             <section style={styles.hero} className="heroGrid">
                 <div style={styles.heroText}>
                     <p style={styles.paragraph}>
-                        Hi, I’m Eman, a fourth-year CS student at LUMS with a deep interest in the intersection of AI (specifically LLMs) and systems, especially where it touches on privacy and online safety. My current research explores how large language models (LLMs) can be used in scalable systems to tackle real-world challenges such as content moderation to make the internet safer. I’m especially focused on child online safety, with it also being my senior thesis topic, supported by <a href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/" target="_blank" rel="noopener noreferrer">Safe Online Global</a>.</p>
+  Hi, I’m Eman, a fourth-year CS student at LUMS working in the domain of privacy and online safety. 
+  My senior project focuses on using AI models, particularly large language models (LLMs), for content moderation 
+  and making the web and digital tools safer for vulnerable groups such as children, supported by 
+  <a href="https://safeonline.global/meet-the-new-safe-online-grantees-2025/" target="_blank" rel="noopener noreferrer"> Safe Online Global</a>. 
+  My current research also includes broader privacy challenges, including web tracking pixels and privacy-preserving wearables.
+</p>
                     <p style={styles.paragraph}>
                         I work jointly at the <strong>Systems &amp; AI Lab</strong> and the <strong>Internet, Data &amp; Society Lab</strong> at LUMS under the supervision of
                         <a href="https://web.lums.edu.pk/~zafar/" target="_blank" rel="noopener noreferrer"> Dr. Zafar Ayyub Qazi</a> and
@@ -106,7 +111,20 @@ function Home({ darkMode, setDarkMode }) {
                         <a href="https://naveedanwarbhatti.github.io" target="_blank" rel="noopener noreferrer"> Dr. Naveed Anwar Bhatti</a> at the <strong>Embedded AI Lab</strong> at LUMS focused on privacy-preserving technologies for bystanders in smart glasses.
                     </p>
                     <p style={styles.paragraph}>
-                        My coursework is strongly inclined toward systems and networking, including distributed systems, network security, OS, Applied Cryptography, and blockchain, backed by hands-on experience with LLMs and edge AI.
+            Beyond LUMS, I’ve also collaborated on <strong>privacy and web-transparency research</strong> with{' '}
+            <a
+                href="https://web.cs.ucdavis.edu/~zubair/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: darkMode ? '#f8ddecff' : '#1a1a1a', textDecoration: 'none' }}
+            >
+                Dr. Zubair Shafiq
+            </a>{' '}
+            at the <strong>University of California, Davis</strong>, where I analyze Google Tag Manager configurations to extract and study third-party tracking pixels' (e.g., Meta, TikTok, Snapchat) events for insights into online tracking practices.
+        </p>
+
+                    <p style={styles.paragraph}>
+                        My coursework is strongly inclined toward systems, AI, and networking, including distributed systems, Topics in Large Language Models, Deep Learning, Network Security, OS, Applied Cryptography, and Blockchain, backed by hands-on experience with LLMs and edge AI.
                     </p>
                 </div>
 
@@ -127,7 +145,7 @@ function Home({ darkMode, setDarkMode }) {
                                 style={styles.icon}
                             />
                         </a>
-                        <a href="https://drive.google.com/file/d/1Uc6RHWWSQHsV9oC1IKMoOqBTfSXcxLZG/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                        <a href="https://drive.google.com/file/d/130P2V7axPQAzYwWYx1zhqrNjRmlzxN_I/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                             <img
                                 src={`${process.env.PUBLIC_URL}/${darkMode ? 'cv-pink.png' : 'cv.png'}`}
                                 alt="CV"
@@ -149,6 +167,117 @@ function Home({ darkMode, setDarkMode }) {
                             />
                         </a>
                     </div>
+                    <div
+  style={{
+    ...styles.newsBox,
+    backgroundColor: darkMode ? '#1f1f1f' : '#fff',
+    color: darkMode ? '#f5f5f5' : '#1a1a1a',
+    border: darkMode ? '1px solid rgba(255,255,255,0.12)' : '1px solid rgba(0,0,0,0.06)',
+  }}
+>
+    <h3
+  style={{
+    ...styles.newsTitle,
+    color: darkMode ? '#f8ddecff' : '#1a1a1a',
+  }}
+>
+  Recent News
+</h3>
+    <ul style={styles.newsList}>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Dec 2025
+  </strong>
+  {' '}- I will be attending and presenting our work on bystander privacy in smart glasses at <strong>IEEE PerCom 2026 (A*)</strong> in Italy in March.
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Dec 2025
+  </strong>
+  {' '}- Our work <em>"Now You See Me, Now You Don't: Consent-Driven Privacy in Smart Glasses"</em> has been accepted at <strong>IEEE PerCom 2026</strong> (15.62% acceptance rate).
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Nov 2025
+  </strong>
+  {' '}- Our federal-level policy framework based on my work on automated content moderation using LLMs for child online safety and blockchain-based age verification system won first runner-up at the <strong>8th Annual MIT Tech and Policy Hackathon</strong>.
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Sept 2025
+  </strong>
+  {' '}- I have been appointed as <strong>Teaching Assistant</strong> for CS370: Operating Systems and CS5812: Introduction to Blockchain Technologies for Fall 2025 at LUMS.
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    March 2025
+  </strong>
+  {' '}- I have received the <strong>PHC Periodt Research Mobility Grant</strong> for cross-national collaboration with University of Paris 8 to study internet shutdowns and LLM-powered IP geolocation.
+
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Jan 2025
+  </strong>
+  {' '}- I have been appointed as <strong>Teaching Assistant</strong> for CS382: Network-Centric Computing for Spring 2025 at LUMS.
+
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    June 2024 - Sept 2024
+  </strong>
+  {' '}- My team and I have won the <strong>teaching and learning grant</strong> to redesign CS200, core programming course at LUMS, and introduce a coding helper bot in labs. I have also been appointed as the <strong>Head Teaching Assistant</strong> for CS200 for Fall 2024.
+
+        </li>
+        <li>
+            <strong
+    style={{
+      color: darkMode ? '#d11498ff' : '#d11498ff', // dark pink
+      fontWeight: 'bold',
+    }}
+  >
+    Jan 2024
+  </strong>
+  {' '}- I have been appointed as <strong>Teaching Assistant</strong> for CS200: Introduction to Programming for Fall 2024 at LUMS.
+
+        </li>
+    </ul>
+</div>
                 </div>
             </section>
 
@@ -309,6 +438,29 @@ const styles = {
         cursor: 'pointer',
         textTransform: 'uppercase',
     },
+    newsBox: {
+    width: '100%',
+    maxWidth: '470px',
+    backgroundColor: '#fff',
+    padding: '0.75rem',
+    borderRadius: '10px',
+    boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
+    fontSize: '0.75rem',
+},
+
+newsTitle: {
+    margin: '0 0 0.5rem 0',
+    fontSize: '0.85rem',
+    fontWeight: 'bold',
+    textAlign: 'center',
+},
+
+newsList: {
+    listStyle: 'none',
+    padding: 0,
+    margin: 0,
+    lineHeight: 1.5,
+},
 };
 
 export default Home;
